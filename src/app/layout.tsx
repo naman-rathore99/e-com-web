@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import React from "react";
 
@@ -8,7 +8,7 @@ import UpperNavbar from "@/components/global/upper-navbar";
 import Navbar from "@/components/global/navbar";
 import Footer from "@/components/global/footer";
 
-const poppins = Poppins({
+const montserrat = Montserrat({
   subsets: ["latin"],
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={poppins.className}>
+    <html lang="en" className={montserrat.className}>
       <body className={`bg-lightBackground w-screen relative`}>
         <div className="w-full bg-[#232F3E] text-white">
           <UpperNavbar />
