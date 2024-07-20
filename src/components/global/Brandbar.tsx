@@ -13,7 +13,7 @@ export interface NavbarInterface {
     icon?: React.ReactNode | string;
 }
 
-const UpperNavbar: React.FC = () => {
+const Brandbar: React.FC = () => {
     const navbarLink: NavbarInterface[] = [
         {
             name: "Get free shipping – Free 30 day money back guarantee",
@@ -57,4 +57,4 @@ const UpperNavbar: React.FC = () => {
     );
 };
 
-export default UpperNavbar;
+export default Brandbar;

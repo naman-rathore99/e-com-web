@@ -4,7 +4,7 @@ import "./globals.css";
 import React from "react";
 
 import SubNavbar from "@/components/global/sub-navbar";
-import UpperNavbar from "@/components/global/upper-navbar";
+import UpperNavbar from "@/components/global/Brandbar";
 import Navbar from "@/components/global/navbar";
 import Footer from "@/components/global/footer";
 

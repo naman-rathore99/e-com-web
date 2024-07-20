@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { FaBars, FaTimes, FaTachometerAlt, FaChartLine, FaUsers, FaBox, FaEnvelope, FaQuestionCircle, FaSignOutAlt, FaSearch } from 'react-icons/fa';
+import SidebarItems from '@/constants/Sidebar-data';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +35,13 @@ const Sidebar = () => {
         </div>
 
         <ul className="space-y-8 pl-3 flex-1 mt-10">
-          <li>
+
+{/* 
+          {SidebarItems.map((name,icon,link)=>{
+            return(
+            
+          })} */}
+          {/* <li>
             <Link href="/" className="text-black font-semibold text-sm flex items-center rounded-md hover:bg-gray-100 p-2">
               <FaTachometerAlt className="w-4 h-4 mr-4" />
               <span>Dashboard</span>
@@ -63,7 +70,7 @@ const Sidebar = () => {
               <FaEnvelope className="w-4 h-4 mr-4" />
               <span>Inbox</span>
             </Link>
-          </li>
+          </li> */}
         </ul>
 
         <ul className="space-y-8 pl-3 mt-8">
