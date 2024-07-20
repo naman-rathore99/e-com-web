@@ -1,6 +1,6 @@
 import React from 'react'
 import Notification from './notification/page'
-import Sidebar from '@/components/DashboardSidebar/Sidebar'
+import Sidebar from "@/components/Sidebar/Sidebar"
 
 const settings = () => {
   return (
