@@ -4,7 +4,7 @@ import "./globals.css";
 import React from "react";
 
 import SubNavbar from "@/components/global/sub-navbar";
-import UpperNavbar from "@/components/global/Brandbar";
+// import UpperNavbar from "@/components/global/Brandbar";
 import Navbar from "@/components/global/navbar";
 import Footer from "@/components/global/footer";
 
@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en" className={poppins.className}>
       <body className={`bg-lightBackground w-screen relative`}>
         <div className="w-full bg-[#232F3E] text-white">
-          <UpperNavbar />
+          {/* <UpperNavbar /> */}
           <Navbar />
           <SubNavbar />
         </div>
