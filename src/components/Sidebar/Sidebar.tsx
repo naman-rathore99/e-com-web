@@ -1,5 +1,6 @@
+
 // SideNavbar.tsx
-import React from 'react';
+import React, { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import {
     MdOutlineSpaceDashboard,
@@ -19,14 +20,13 @@ interface SideNavbarProps {
 }
 
 const SideNavbar: React.FC<SideNavbarProps> = ({ activeTab, setActiveTab }) => {
-    const [isOpen, setIsOpen] = React.useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const handleTabChange = (tab: string) => {
         setActiveTab(tab);
         setIsOpen(false); // Optionally close the sidebar
     };
 
-    // Corrected function type
     const handleKeyPress = (event: React.KeyboardEvent<HTMLButtonElement>, tab: string) => {
         if (event.key === 'Enter' || event.key === ' ') {
             handleTabChange(tab);
@@ -37,7 +37,7 @@ const SideNavbar: React.FC<SideNavbarProps> = ({ activeTab, setActiveTab }) => {
         <div className="relative">
             {/* Toggle button */}
             <button
-                className="absolute top-4 right-4 inline-flex items-center peer justify-center rounded-md p-2 text-gray-800 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white group z-10"
+                className="absolute top-4 right-4 inline-flex items-center peer justify-center rounded-md p-2 text-gray-800 dark:hover:bg-white hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white group z-10"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle sidebar"
             >
@@ -53,11 +53,10 @@ const SideNavbar: React.FC<SideNavbarProps> = ({ activeTab, setActiveTab }) => {
                     <div className="flex flex-col justify-start ">
                         {/* Dashboard Tab */}
                         <button
-                            className={`flex mb-2 justify-start items-center gap-4 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/dashboard' ? 'bg-gray-900 text-white' : ''}`}
+                            className={`flex mb-2 justify-start items-center gap-4 dark:hover:bg-white hover:bg-gray-900   p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/dashboard' ? 'bg-gray-900 text-white' : ''}`}
                             onClick={() => handleTabChange('/dashboard')}
                             onKeyDown={(event) => handleKeyPress(event, '/dashboard')}
                             tabIndex={0}
-                            role="button"
                             aria-pressed={activeTab === '/dashboard'}
                         >
                             <MdOutlineSpaceDashboard className="text-2xl" />
@@ -66,11 +65,10 @@ const SideNavbar: React.FC<SideNavbarProps> = ({ activeTab, setActiveTab }) => {
 
                         {/* Profile Tab */}
                         <button
-                            className={`flex mb-2 justify-start items-center gap-4 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/profile' ? 'bg-gray-900 text-white' : ''}`}
+                            className={`flex mb-2 justify-start items-center gap-4 dark:hover:bg-white hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/profile' ? 'bg-gray-900 text-white' : ''}`}
                             onClick={() => handleTabChange('/profile')}
                             onKeyDown={(event) => handleKeyPress(event, '/profile')}
                             tabIndex={0}
-                            role="button"
                             aria-pressed={activeTab === '/profile'}
                         >
                             <CgProfile className="text-2xl" />
@@ -79,11 +77,10 @@ const SideNavbar: React.FC<SideNavbarProps> = ({ activeTab, setActiveTab }) => {
 
                         {/* Comments Tab */}
                         <button
-                            className={`flex mb-2 justify-start items-center gap-4 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/comments' ? 'bg-gray-900 text-white' : ''}`}
+                            className={`flex mb-2 justify-start items-center gap-4 dark:hover:bg-white hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/comments' ? 'bg-gray-900 text-white' : ''}`}
                             onClick={() => handleTabChange('/comments')}
                             onKeyDown={(event) => handleKeyPress(event, '/comments')}
                             tabIndex={0}
-                            role="button"
                             aria-pressed={activeTab === '/comments'}
                         >
                             <FaRegComments className="text-2xl" />
@@ -92,11 +89,10 @@ const SideNavbar: React.FC<SideNavbarProps> = ({ activeTab, setActiveTab }) => {
 
                         {/* Analytics Tab */}
                         <button
-                            className={`flex mb-2 justify-start items-center gap-4 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/analytics' ? 'bg-gray-900 text-white' : ''}`}
+                            className={`flex mb-2 justify-start items-center gap-4 dark:hover:bg-white hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/analytics' ? 'bg-gray-900 text-white' : ''}`}
                             onClick={() => handleTabChange('/analytics')}
                             onKeyDown={(event) => handleKeyPress(event, '/analytics')}
                             tabIndex={0}
-                            role="button"
                             aria-pressed={activeTab === '/analytics'}
                         >
                             <MdOutlineAnalytics className="text-2xl" />
@@ -105,11 +101,10 @@ const SideNavbar: React.FC<SideNavbarProps> = ({ activeTab, setActiveTab }) => {
 
                         {/* Messages Tab */}
                         <button
-                            className={`flex mb-2 justify-start items-center gap-4 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/messages' ? 'bg-gray-900 text-white' : ''}`}
+                            className={`flex mb-2 justify-start items-center gap-4 dark:hover:bg-white hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/messages' ? 'bg-gray-900 text-white' : ''}`}
                             onClick={() => handleTabChange('/messages')}
                             onKeyDown={(event) => handleKeyPress(event, '/messages')}
                             tabIndex={0}
-                            role="button"
                             aria-pressed={activeTab === '/messages'}
                         >
                             <BiMessageSquareDots className="text-2xl" />
@@ -118,11 +113,10 @@ const SideNavbar: React.FC<SideNavbarProps> = ({ activeTab, setActiveTab }) => {
 
                         {/* Integration Tab */}
                         <button
-                            className={`flex mb-2 justify-start items-center gap-4 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/integration' ? 'bg-gray-900 text-white' : ''}`}
+                            className={`flex mb-2 justify-start items-center gap-4 dark:hover:bg-white hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/integration' ? 'bg-gray-900 text-white' : ''}`}
                             onClick={() => handleTabChange('/integration')}
                             onKeyDown={(event) => handleKeyPress(event, '/integration')}
                             tabIndex={0}
-                            role="button"
                             aria-pressed={activeTab === '/integration'}
                         >
                             <MdOutlineIntegrationInstructions className="text-2xl" />
@@ -131,11 +125,10 @@ const SideNavbar: React.FC<SideNavbarProps> = ({ activeTab, setActiveTab }) => {
 
                         {/* Settings Tab */}
                         <button
-                            className={`flex mb-2 justify-start items-center gap-4 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/settings' ? 'bg-gray-900 text-white' : ''}`}
+                            className={`flex mb-2 justify-start items-center gap-4 dark:hover:bg-white hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/settings' ? 'bg-gray-900 text-white' : ''}`}
                             onClick={() => handleTabChange('/settings')}
                             onKeyDown={(event) => handleKeyPress(event, '/settings')}
                             tabIndex={0}
-                            role="button"
                             aria-pressed={activeTab === '/settings'}
                         >
                             <MdOutlineSettings className="text-2xl" />
@@ -144,11 +137,10 @@ const SideNavbar: React.FC<SideNavbarProps> = ({ activeTab, setActiveTab }) => {
 
                         {/* More Tab */}
                         <button
-                            className={`flex mb-2 justify-start items-center gap-4 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/more' ? 'bg-gray-900 text-white' : ''}`}
+                            className={`flex mb-2 justify-start items-center gap-4 dark:hover:bg-white hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/more' ? 'bg-gray-900 text-white' : ''}`}
                             onClick={() => handleTabChange('/more')}
                             onKeyDown={(event) => handleKeyPress(event, '/more')}
                             tabIndex={0}
-                            role="button"
                             aria-pressed={activeTab === '/more'}
                         >
                             <MdOutlineMoreHoriz className="text-2xl" />
@@ -157,11 +149,10 @@ const SideNavbar: React.FC<SideNavbarProps> = ({ activeTab, setActiveTab }) => {
 
                         {/* Logout Tab */}
                         <button
-                            className={`flex mb-2 justify-start items-center gap-4 border border-gray-200 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/logout' ? 'bg-gray-900 text-white' : ''}`}
+                            className={`flex mb-2 justify-start items-center gap-4 border border-gray-200 dark:hover:bg-white hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto ${activeTab === '/logout' ? 'bg-gray-900 text-white' : ''}`}
                             onClick={() => handleTabChange('/logout')}
                             onKeyDown={(event) => handleKeyPress(event, '/logout')}
                             tabIndex={0}
-                            role="button"
                             aria-pressed={activeTab === '/logout'}
                         >
                             <MdOutlineLogout className="text-2xl" />
