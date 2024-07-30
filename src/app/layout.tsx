@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import React from "react";
 
 import SubNavbar from "@/components/global/sub-navbar";
-// import UpperNavbar from "@/components/global/Brandbar";
 import Navbar from "@/components/global/navbar";
 import Footer from "@/components/global/footer";
+import { ThemeProvider } from "@/utils/ThemeContext";
 
-const poppins = Poppins({
+
+const poppins = Montserrat({
   subsets: ["latin"],
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
@@ -19,21 +20,33 @@ export const metadata: Metadata = {
   description: "Made with AYNcore",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={poppins.className}>
-      <body className={`bg-lightBackground w-screen relative`}>
-        <div className="w-full bg-[#232F3E] text-white">
-          {/* <UpperNavbar /> */}
-          <Navbar />
-          <SubNavbar />
-        </div>
-        <main className="main flex-1">{children}</main>
-        <Footer />
+      <link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+/>
+      <body className={`w-screen relative`}>
+      <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+          <div className="w-full">
+            <Navbar />
+            <SubNavbar />
+          </div>
+          <main className="main flex-1">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

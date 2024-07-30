@@ -45,7 +45,7 @@ const SideNavbar: React.FC<SideNavbarProps> = ({ activeTab, setActiveTab }) => {
     ];
 
     return (
-        <div className="relative">
+        <div className="relative dark:bg-slate-300">
             {/* Toggle button */}
             <button
                 className="absolute top-4 left-0 inline-flex items-center peer justify-center rounded-md p-2 text-gray-800 dark:hover:bg-white hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white group z-10"
@@ -60,7 +60,7 @@ const SideNavbar: React.FC<SideNavbarProps> = ({ activeTab, setActiveTab }) => {
                 className={`transition-transform duration-200 ease-out ${isOpen ? 'translate-x-0' : '-translate-x-96'
                     } lg:translate-x-0 lg:w-60 lg:relative lg:block lg:z-0 lg:h-auto`}
             >
-                <div className="p-2 w-auto h-screen bg-white z-20">
+                <div className="p-2 w-auto h-screen  z-20">
                     <div className="flex flex-col justify-start ">
                         {tabs.map((tab) => (
                             <Link href={tab.path} key={tab.path} passHref>

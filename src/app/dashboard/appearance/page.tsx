@@ -1,92 +1,58 @@
-// import React, { useState, useEffect } from 'react';
+"use client"
 
-// const ThemeSwitch: React.FC = () => {
-//   const [theme, setTheme] = useState<'light' | 'dark'>('light');
+import React from "react"
+import { useTheme } from "next-themes"
+import { FaSun, FaMoon } from "react-icons/fa"
 
-//   useEffect(() => {
-//     if (theme === 'dark') {
-//       document.documentElement.classList.add('dark');
-//     } else {
-//       document.documentElement.classList.remove('dark');
-//     }
-//   }, [theme]);
+const Switch = () => {
+  const { theme, setTheme } = useTheme()
 
-//   const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>, newTheme: 'light' | 'dark') => {
-//     if (event.key === 'Enter' || event.key === ' ') {
-//       setTheme(newTheme);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <p className="font-medium mb-1 text-gray-500 dark:text-gray-400">Looking for?</p>
-//       <div className="flex gap-x-4">
-//         {/* Light Theme Option */}
-//         <div
-//           role="button"
-//           tabIndex={0}
-//           className={`relative flex w-56 items-center justify-center rounded-xl px-4 py-3 font-medium cursor-pointer ${
-//             theme === 'light' ? 'bg-gray-50 text-gray-700' : 'bg-gray-800 text-white'
-//           }`}
-//           onClick={() => setTheme('light')}
-//           onKeyDown={(event) => handleKeyPress(event, 'light')}
-//         >
-//           <input
-//             className="peer hidden"
-//             type="radio"
-//             name="theme"
-//             id="theme-light"
-//             checked={theme === 'light'}
-//             readOnly
-//             aria-hidden="true"
-//           />
-//           <label
-//             className="peer-checked:border-blue-400 peer-checked:bg-blue-200 absolute top-0 h-full w-full rounded-xl border"
-//             htmlFor="theme-light"
-//           ></label>
-//           <div className="peer-checked:border-transparent peer-checked:bg-blue-400 peer-checked:ring-2 absolute left-4 h-5 w-5 rounded-full border-2 border-gray-300 bg-gray-200 ring-blue-400 ring-offset-2"></div>
-//           <span className="pointer-events-none z-10">Light</span>
-//         </div>
-//         {/* Dark Theme Option */}
-//         <div
-//           role="button"
-//           tabIndex={0}
-//           className={`relative flex w-56 items-center justify-center rounded-xl px-4 py-3 font-medium cursor-pointer ${
-//             theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-gray-50 text-gray-700'
-//           }`}
-//           onClick={() => setTheme('dark')}
-//           onKeyDown={(event) => handleKeyPress(event, 'dark')}
-//         >
-//           <input
-//             className="peer hidden"
-//             type="radio"
-//             name="theme"
-//             id="theme-dark"
-//             checked={theme === 'dark'}
-//             readOnly
-//             aria-hidden="true"
-//           />
-//           <label
-//             className="peer-checked:border-blue-400 peer-checked:bg-blue-200 absolute top-0 h-full w-full rounded-xl border"
-//             htmlFor="theme-dark"
-//           ></label>
-//           <div className="peer-checked:border-transparent peer-checked:bg-blue-400 peer-checked:ring-2 absolute left-4 h-5 w-5 rounded-full border-2 border-gray-300 bg-gray-200 ring-blue-400 ring-offset-2"></div>
-//           <span className="pointer-events-none z-10">Dark</span>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ThemeSwitch;
-
-
-import React from 'react'
-
-const appearance = () => {
   return (
-    <div>appearance</div>
+    <div className="m-4 flex justify-center space-x-4">
+
+      <div
+        onClick={() => setTheme("system")}
+        className={`flex cursor-pointer items-center justify-between p-4 rounded-lg shadow-lg bg-gray-200 dark:bg-gray-900 w-64 transition-shadow duration-300 ${theme === "system" ? "bg-blue-100" : "bg-gray-200"
+          }`}
+      >
+        <div className="flex items-center">
+          <span className="ml-4 text-lg font-medium text-gray-900 dark:text-gray-100">
+            System Default
+          </span>
+        </div>
+      </div>
+      {/* Light Mode Card */}
+      <div
+        onClick={() => setTheme("light")}
+        className={`flex cursor-pointer items-center justify-between p-4 rounded-lg shadow-lg bg-white dark:bg-gray-800 w-64 transition-shadow duration-300 ${theme === "light" ? "bg-blue-100" : "bg-white"
+          }`}
+      >
+        <div className="flex items-center">
+          <FaSun className="h-6 w-6 text-yellow-500" />
+          <span className="ml-4 text-lg font-medium text-gray-900 dark:text-gray-100">
+            Light Mode
+          </span>
+        </div>
+      </div>
+
+      {/* Dark Mode Card */}
+      <div
+        onClick={() => setTheme("dark")}
+        className={`flex cursor-pointer items-center justify-between p-4 rounded-lg shadow-lg bg-gray-800 text-white w-64 transition-shadow duration-300 ${theme === "dark" ? "bg-blue-100" : "bg-gray-800"
+          }`}
+      >
+        <div className="flex items-center">
+          <FaMoon className="h-6 w-6 text-blue-500" />
+          <span className="ml-4 text-lg font-medium text-gray-100">
+            Dark Mode
+          </span>
+        </div>
+      </div>
+
+      {/* System Mode Card */}
+
+    </div>
   )
 }
 
-export default appearance
+export default Switch
