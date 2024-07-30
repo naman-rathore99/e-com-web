@@ -6,9 +6,9 @@ const Homeslider = () => {
   return (
    
     <AwesomeSlider animation="cubeAnimation">
-    <div data-src="" />
-    <div data-src="" />
-    <div data-src="" />
+    <div data-src="/public/banner_1.jpg" />
+    <div data-src="/public/banner_2.jpg" />
+    <div data-src="/public/banner_3.jpg" />
   </AwesomeSlider>
   )
 }

@@ -10,8 +10,9 @@ const Switch = () => {
   return (
     <div className="m-4 flex justify-center space-x-4">
 
-      <div
+      <button
         onClick={() => setTheme("system")}
+        onKeyDown={(e) => e.key === 'Enter' && setTheme("system")}
         className={`flex cursor-pointer items-center justify-between p-4 rounded-lg shadow-lg bg-gray-200 dark:bg-gray-900 w-64 transition-shadow duration-300 ${theme === "system" ? "bg-blue-100" : "bg-gray-200"
           }`}
       >
@@ -20,10 +21,11 @@ const Switch = () => {
             System Default
           </span>
         </div>
-      </div>
+      </button>
       {/* Light Mode Card */}
-      <div
+      <button
         onClick={() => setTheme("light")}
+        onKeyDown={(e) => e.key === 'Enter' && setTheme("light")}
         className={`flex cursor-pointer items-center justify-between p-4 rounded-lg shadow-lg bg-white dark:bg-gray-800 w-64 transition-shadow duration-300 ${theme === "light" ? "bg-blue-100" : "bg-white"
           }`}
       >
@@ -33,11 +35,12 @@ const Switch = () => {
             Light Mode
           </span>
         </div>
-      </div>
+      </button>
 
       {/* Dark Mode Card */}
-      <div
+      <button
         onClick={() => setTheme("dark")}
+        onKeyDown={(e) => e.key === 'Enter' && setTheme("dark")}
         className={`flex cursor-pointer items-center justify-between p-4 rounded-lg shadow-lg bg-gray-800 text-white w-64 transition-shadow duration-300 ${theme === "dark" ? "bg-blue-100" : "bg-gray-800"
           }`}
       >
@@ -47,7 +50,7 @@ const Switch = () => {
             Dark Mode
           </span>
         </div>
-      </div>
+      </button>
 
       {/* System Mode Card */}
 
