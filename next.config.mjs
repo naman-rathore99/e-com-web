@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["readymadeui.com"],
+    remotePatterns: [
+      {
+          hostname: "picsum.photos"
+      }
+  ]
   },
 };
 

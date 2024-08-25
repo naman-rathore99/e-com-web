@@ -3,6 +3,7 @@ import Discover from "@/components/home/discover";
 import Experts from "@/components/home/experts";
 import Explore from "@/components/home/explore";
 import Hero from "@/components/home/hero";
+import Homeslider from "@/components/home/Homeslider";
 import NewArrivals from "@/components/home/new-arrivals";
 import NewsLetter from "@/components/home/news-letter";
 import PrimeMembership from "@/components/home/prime-membership";
@@ -13,6 +14,7 @@ import Testimonials from "@/components/home/testimonials";
 export default function Home() {
   return (
     <div className="bg-white">
+      <Homeslider />
       <Hero />
       <div className="md:mx-24 mx-10">
         <Discover/>
